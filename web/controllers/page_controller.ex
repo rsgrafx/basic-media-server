@@ -6,6 +6,10 @@ defmodule OrionMedia.PageController do
   end
 
   def show(conn, %{"filename" => filename}) do
+    render conn, "show.html", filename: filename 
+  end
+
+  def media(conn, %{"filename" => filename}) do
     load_video(conn, filename)
   end
 
@@ -26,7 +30,6 @@ defmodule OrionMedia.PageController do
     video_path = "priv/static/media/#{filename}"
     {:ok, stats} = File.stat(video_path)
     filesize = stats.size
-
     [range_start, range_end] =
       if Enum.empty?(Plug.Conn.get_req_header(conn, "range")) do
         [0, filesize - 1]

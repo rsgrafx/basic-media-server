@@ -18,7 +18,7 @@ defmodule OrionMedia.Router do
 
     get "/", PageController, :index
     get "/show", PageController, :show
-    # get "/media/:filename", PageController, :media
+    get "/media/:filename", PageController, :media
   end
 
   # Other scopes may use custom stacks.
