@@ -1,0 +1,7 @@
+<h3 class=“ui dividing header”><%= @filename %></h3>
+
+<video width="320" height="240" controls autoplay>
+  <source src="/media/<%= @filename %>" type="video/mp4">
+  Your browser does not support the video tag. Just replace it.
+</video>
+
